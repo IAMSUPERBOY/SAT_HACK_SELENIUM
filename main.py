@@ -96,7 +96,8 @@ chat_session = model.start_chat(
 )
 st.session_state['history']=[]
 
-
+with st.sidebar:
+    url=st.text_input("URL")
 for message in chat_session.history:
     role="model" if message.role=='model' else message.role
     with st.chat_message(role):
