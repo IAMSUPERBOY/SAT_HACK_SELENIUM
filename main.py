@@ -81,9 +81,9 @@ chat_session = model.start_chat(
     {
       "role": "user",
       "parts": [
-        "generate sample inputs while keeping in consideration the different factors that may break the website ",
+        "generate sample inputs while keeping in consideration the different factors that may compromise the website ",
         "Here are some sample inputs designed to test the robustness of your website, considering various factors that could lead to breakage:\n\n**1.  Basic & Valid:**\n\n```json\n{\n  \"first_name\": \"John\",\n  \"last_name\": \"Doe\"\n}\n```\n\n**2.  Edge Cases:**\n\n* **Short Names:** \n  ```json\n  {\n    \"first_name\": \"J\",\n    \"last_name\": \"D\"\n  }\n  ```\n* **Long Names:** \n  ```json\n  {\n    \"first_name\": \"Johnathon\", \n    \"last_name\": \"Doe-Smith-Jr\"\n  }\n  ```\n* **Special Characters:**\n  ```json\n  {\n    \"first_name\": \"Jöhn\",\n    \"last_name\": \"Döé\"\n  }\n  ```\n\n**3.  Invalid Inputs (Potential Breakage):**\n\n* **Empty Values:**\n  ```json\n  {\n    \"first_name\": \"\",\n    \"last_name\": \"\"\n  }\n  ```\n* **Numbers Only:**\n  ```json\n  {\n    \"first_name\": \"12345\",\n    \"last_name\": \"67890\"\n  }\n  ```\n* **Special Characters (Unescaped):**\n  ```json\n  {\n    \"first_name\": \"John<script>alert('Gotcha!')</script>\",\n    \"last_name\": \"Doe\"\n  }\n  ```\n* **Extremely Long Strings:** (Exceeding field length limits)\n  ```json\n  {\n    \"first_name\": \" \".repeat(256), // 256 spaces\n    \"last_name\": \" \".repeat(512) // 512 spaces\n  }\n  ```\n* **Non-printable Characters:** (Including control characters, etc.)\n  ```json\n  {\n    \"first_name\": \"\\x08John\\x08\", // Backspace characters\n    \"last_name\": \"\\x03Doe\\x03\" // Control characters\n  }\n  ```\n\n**Important Considerations:**\n\n* **Server-Side Validation:** Ensure your backend has robust validation to catch invalid inputs and prevent potential security vulnerabilities (e.g., cross-site scripting attacks).\n* **User Experience:** Aim to provide clear error messages and guidance to the user if their input is invalid. \n* **Database Integrity:**  Be aware of the constraints of your database and design your input fields accordingly to prevent data corruption. \n\n\nRemember to thoroughly test your website with a variety of input scenarios like these. \n",
-        "give all sample inputs as single json object\n",
+        "give all sample inputs as single json object\n,generate a comprehensive set of testdata contained as an array of json objects with each input element name being the key. Display only the array data\n",
       ],
     },
     {
@@ -95,8 +95,7 @@ chat_session = model.start_chat(
   ]
 )
 st.session_state['history']=[]
-with st.sidebar:
-    st.button("clear",on_click="",use_container_width=True)
+
 
 for message in chat_session.history:
     role="model" if message.role=='model' else message.role
