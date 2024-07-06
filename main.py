@@ -113,12 +113,13 @@ if "app_key" in st.session_state:
         message_placeholder.markdown("Generating dummy data")
         try:
             response=""
-            if prompt!="":
-                for chunk in chat_session.send_message(prompt,stream=True,safety_settings={ HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
+            if prompt!=None:
+                for chunk in chat_session.send_message(content=prompt,stream=True,safety_settings={ HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,
         HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_LOW_AND_ABOVE,}):
                      for word in chunk.text:
                          response+=word
                          message_placeholder.markdown(response)
+                         print(response)
                     
             message_placeholder.markdown(response)
             
