@@ -98,6 +98,8 @@ chat_session = model.start_chat(
 )
 st.session_state['history']=[]
 
+tests = None;
+
 with st.sidebar:
     url=st.text_input("URL")
     driver = wd.Edge()
@@ -126,7 +128,7 @@ if "app_key" in st.session_state:
                      for word in chunk.text:
                          response+=word
                          message_placeholder.markdown(response)
-                         print(response)
+                         tests = response.partition("```json")[2][:-3]
                     
             message_placeholder.markdown(response)    
         except Exception as e:
