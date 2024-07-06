@@ -109,7 +109,7 @@ for message in chat_session.history:
 
 print(chat_session.history)
 if "app_key" in st.session_state:
-    prompt = driver.page_source+"\ngenerate a comprehensive set of testdata contained as an array of json objects with each input element name being the key. Display only the array data"
+    prompt = driver.page_source+"\ngenerate a comprehensive set of testdata contained as an array of json objects with each input element name being the key, also include the button associated with particular elemnts, it should have `Submit_button` as key value. `Display only the array data`"
     #if prompt:=st.chat_input(''):
     #    prompt=prompt.replace('\n',' \n')
         
