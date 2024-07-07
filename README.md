@@ -1,10 +1,10 @@
 # Testcase generator
 ## Objective:
-The user can provide the link of the website that needs to be tested. The selenium framework is used for parsing the web page and then return its source code. This is then used as a part of a prompt given to gemini model. This then generates the required testcases in the form of an array of json objects that can be used for testing the application. 
+The user can provide the link of the website that needs to be tested. The selenium framework is used for parsing the web page and then returns its source code. This is then used as part of a prompt given to the Gemini model. This generates the required testcases in the form of an array of JSON objects that can be used to test application. 
 
-At present the application simply generates the testcases it can be then copied from streamlit frontend. Additional functionality intended would be to make selenium use the dummy data in testing the app. This functionality is still in progress.
+Presently the application simply generates the testcases which can be then be copied from Streamlit frontend. Additional functionality intended would be making selenium use the dummy data in testing the app. This functionality is still in progress.
 
-Required packages need to be installed. And don't forget to add your gemini api key.
+Required packages need to be installed. And don't forget to add your Gemini API key.
 
 It can be run by executing 
 ```python3 -m streamlit run selenium_added.py```
