@@ -14,7 +14,7 @@ import streamlit as st
 
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyD4ZGanAgjM8OxmyE4tC-kCwITlKxRq5Kg")
+genai.configure(api_key=<API_KEY>)
 
 st.set_page_config(page_title="Html parser")
 st.title("Automated testcase generator")
