@@ -11,3 +11,4 @@ Frontend: Streamlit
 
 LLM model used: Gemini Pro 1.5
  
+[screen-capture (1).webm](https://github.com/IAMSUPERBOY/SAT_HACK_SELENIUM/assets/117973059/b992ff6a-2b1e-4c90-8e50-61fe6834b00c)
