@@ -14,13 +14,13 @@ import streamlit as st
 import selenium.webdriver as wd
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyD4ZGanAgjM8OxmyE4tC-kCwITlKxRq5Kg")
+genai.configure(api_key=<API_KEY>)
 
 st.set_page_config(page_title="Html parser")
 st.title("Automated testcase generator")
 
 if "app_key" not in st.session_state:
-    app_key="AIzaSyD4ZGanAgjM8OxmyE4tC-kCwITlKxRq5Kg"
+    app_key=<API_KEY>
     if app_key:
         st.session_state["app_key"]=app_key
 # Create the model
