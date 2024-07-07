@@ -4,6 +4,8 @@ The user can provide the link of the website that needs to be tested. The seleni
 
 At present the application simply generates the testcases it can be then copied from streamlit frontend. Additional functionality intended would be to make selenium use the dummy data in testing the app. This functionality is still in progress.
 
+It can be run by executing 
+```python3 -m streamlit run selenium_added.py```
 
 Frontend: Streamlit
 
